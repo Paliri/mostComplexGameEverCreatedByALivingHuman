@@ -5,20 +5,19 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ask();
-        while (true) {
-            if (choice()) break;
-        }
-        askRepeat();
     }
 
     private static boolean choice() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выбери кем бы ты хотел быть: \n 1-Воин, \n 2-Вор \n 3-Маг \n 4-Лучник \n 5-Священник \n П.С. Просто введи нужную цифру");
-        int role;
-        role = scanner.nextInt();
+
+        if(!scanner.hasNextInt()) {
+            return false;
+        }
+        int role = scanner.nextInt();
         switch (role) {
             case 1:
-                System.out.print("Ммм, Воин, ты жаждешь сражений!");
+                System.out.println("Ммм, Воин, ты жаждешь сражений!");
                 break;
             case 2:
                 System.out.println("Вор - Ты можешь пробраться куда-угодно  и остаться незамеченным!");
@@ -66,32 +65,29 @@ public class Main {
             default:
                 System.out.println("Хорошая попытка, но выбрать надо из предложенных вариантов");
                 return false;
-
         }
-
         return true;
-
     }
 
     private static void ask() {
         System.out.println("Как я могу обращаться к тебе, смерд?");
         Scanner scanner = new Scanner(System.in);
-        String name;
-        name = scanner.nextLine();
+        String name = scanner.nextLine();
         System.out.println("Приветствую тебя, " + name + "!");
+        while (true) {
+            if (choice()) break;
+        }
+        askRepeat();
     }
 
     private static void askRepeat() {
         System.out.println("Вы хотите повторить, всё это еще разок? YES or NO?");
         Scanner scanner = new Scanner(System.in);
-        String answer;
-        answer = scanner.nextLine();
+        String answer = scanner.nextLine().toUpperCase();
         if ("YES".equals(answer)) {
             ask();
-
         } else if ("NO".equals(answer)) {
             System.out.println("Ну и ладно! До встречи!");
-
         } else {
             askRepeat();
         }

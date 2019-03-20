@@ -81,7 +81,7 @@ public class Main {
     }
 
     private static void askRepeat() {
-        System.out.println("Вы хотите повторить, всё это еще разок? Пидр, YES or NO?");
+        System.out.println("Вы хотите повторить, всё это еще разок? YES or NO?");
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine().toUpperCase();
         if ("YES".equals(answer)) {

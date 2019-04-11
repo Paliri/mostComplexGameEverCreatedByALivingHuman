@@ -43,7 +43,7 @@ public class Main {
             System.out.println("Как я могу обращаться к тебе, смерд?");
             Scanner scanner = new Scanner(System.in);
             String name = scanner.nextLine();
-            System.out.println("Приветствую тебя, " + name + "!");
+            System.out.println("Приветствую тебя, " + name + "!!!");
             while (!choice()) {};
         } while(askRepeat());
     }
